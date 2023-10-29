@@ -2,7 +2,7 @@ import EventDispatcher from "../../@shared/event/event-dispatcher";
 import EnviaConsoleLogHandler from "../event/handler/envia-console-log.handler";
 import EnviaConsoleLog1Handler from "../event/handler/envia-console-log1.handler";
 import enviaConsoleLog2Handler from "../event/handler/envia-console-log2.handler";
-import Address from "./address";
+import Address from "../value-object/address";
 import Customer from "./customer";
 
 describe("Customer unit tests", () => {

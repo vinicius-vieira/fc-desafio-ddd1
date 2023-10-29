@@ -9,7 +9,7 @@ import CustomerRepository from "../../customer/repository/customer.repository";
 import OrderItem from "../../../domain/checkout/entity/order_item";
 import Product from "../../../domain/product/entity/product";
 import Customer from "../../../domain/customer/entity/customer";
-import Address from "../../../domain/customer/entity/address";
+import Address from "../../../domain/customer/value-object/address";
 import Order from "../../../domain/checkout/entity/order";
 
 
