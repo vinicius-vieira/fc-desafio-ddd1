@@ -8,18 +8,18 @@ export default abstract class Entity{
         this.notification = new Notification();
     }
 
-    protected addError(message:string){
+    public addError(message:string){
         this.notification.addError({
             context: this.constructor["name"].toLowerCase(),
             message: message,
         });
     }
 
-    protected hasErrors():boolean{
+    public hasErrors():boolean{
         return this.notification.hasErrors();
     }
 
-    protected getErros():NotificationErrorProps[]{
+    public getErros():NotificationErrorProps[]{
         return this.notification.errors;
     }
 
