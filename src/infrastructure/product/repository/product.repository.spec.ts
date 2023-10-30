@@ -17,7 +17,7 @@ describe("Product repository test", () => {
     await sequileze.sync();
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await sequileze.close();
   });
 

@@ -33,7 +33,7 @@ describe("Order repository test", () => {
     await sequelize.sync();
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await sequelize.close();
   });
 

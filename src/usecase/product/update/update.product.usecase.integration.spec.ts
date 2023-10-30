@@ -27,7 +27,7 @@ describe("Integration Test update product use case", () => {
     await sequelize.sync();
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await sequelize.close();
   });
 

@@ -1,10 +1,11 @@
+import Entity from "../../@shared/entity/entity.abstract";
 import EventDispatcher from "../../@shared/event/event-dispatcher";
+import NotificationError from "../../@shared/notification/notification.error";
 import CustomerChangeAddressEvent from "../event/customer-change-address.event";
 import CustomerCreatedEvent from "../event/customer-created.event";
 import Address from "../value-object/address";
 
-export default class Customer {
-  private _id: string;
+export default class Customer extends Entity {
   private _name: string = "";
   private _address!: Address;
   private _active: boolean = false;
@@ -12,6 +13,7 @@ export default class Customer {
   private _eventDispatcher!: EventDispatcher;
 
   constructor(id: string, name: string, eventDispatcher?: EventDispatcher) {
+    super();
     this._id = id;
     this._name = name;
     this.validate();
@@ -23,10 +25,6 @@ export default class Customer {
     }
   }
 
-  get id(): string {
-    return this._id;
-  }
-
   get name(): string {
     return this._name;
   }
@@ -36,20 +34,23 @@ export default class Customer {
   }
 
   validate() {
-    if (this._id.length === 0) {
-      throw new Error("Id is required");
+    if (this.id.length === 0) {
+      this.addError("Id is required");
     }
     if (this._name.length === 0) {
-      throw new Error("Name is required");
+      this.addError("Name is required");
     }
+
+    if(this.hasErrors()){
+      throw new NotificationError(this.getErros());
+    }
+
   }
 
   changeName(name: string) {
     this._name = name;
     this.validate();
-
   }
-
 
   changeAddress(address: Address) {
     this._address = address;
