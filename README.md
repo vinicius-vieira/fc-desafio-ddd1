@@ -1,2 +1,5 @@
-# fc-desafio-ddd1
-FC desafiio DDD 1 OrderRepository
+# fc-desafios
+
+## Desafio Notification Pattern em produtos
+
+- O padrão notification foi implementado na classe domain.entity.product.Product
